@@ -1,0 +1,31 @@
+Requirements
+User should be able to book cab that is avl near to him
+Only 1 cab should be allotted to user at given time
+If no cabs available throw error
+Cab should pick user from desired location and drop at desired location
+Only cabs that are idle should be alotted
+
+Classes
+Models
+    Vehicle - regNo, color, Location currentLocation
+    User -  id, Name, Location pickup, Location dropLocation
+    Location - Lat, long,
+    Zone - id, name
+    Strategy
+        Strategy
+        NearestCabStrategy
+            Map<Zone, ArrayList<Vehicle>> cabs
+            addAvailableCab()
+            deleteCab()
+            getCab(Zone, Location)-
+                TreeSet
+Services
+    CabBookingService
+        bookCab()
+    RideService
+        startRide()
+        EndRide()
+
+
+    CalculateDistance(Location current, Location drop){
+    pow(drop.lat-current.lat, 2) + pow(drop.long - current.long, 2);

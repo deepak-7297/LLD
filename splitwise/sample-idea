@@ -1,0 +1,66 @@
+Requirements
+- User should be able to owe/owes to another user
+- User should be able to decide how to split money by value, percentage, equal
+- User should be able to view all expenses which someone owes or which he owes
+
+
+Classes
+
+User - id, name, Expense
+Split - AbstractClass
+	amount
+	User
+	PercentageSplit
+	EqualSplit
+	ValueSplit
+Expense
+	id
+	topic
+	int Amount
+	User paidBy
+	List<Split> splitAmong
+	Enum ExpenseState {Settled, Pending}
+
+	PercentageSplitExpense
+	EqualSplitExpense
+	ValueSplitExpense
+
+----------------------------------
+
+Requirements
+- User should be able to owe/owes to another user
+- User should be able to decide how to split money by value, percentage, equal
+- User should be able to view all expenses which someone owes or which he owes
+
+User
+	id, name, Expense
+
+Expense
+	User paidBY
+	List<Users> splitAmong
+	Int Amount
+	Split split
+
+abstract Split
+	type
+	Map<User, Amount>
+
+interface SplittingStrategy
+	type
+	Map<User, Int> split()
+
+	SplitByValue
+
+	SplitByPercentage
+
+	SplitByEqual
+
+
+ExpenseManager
+	Map<User, Map<User, int>> balanceSheet 
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+Incident management system
+
+Build a system which has following capabilities
+Onboard users and team. Users can have different roles like developer, lead, manager.
+Create an incident and assign it to the respective team based on configuration.
+It should have capabilities to notify users using email,call,sms,slack
+It should have capabilities to escalate the incident. Eg. escalate to level 2, escalate to level 3. This can be based on rules, such as notify level 1 twice and if it does not get responded escalate to level 2.
+Build schedules for on call.
+Write models and what all the apis the system will have. This was the question
+
+
+Class
+
+User 
+	id, name, role, team, email, number
+
+enum Roles {developer, lead, manager.}
+
+enum EscalationLevel {
+	LEVEL1(1),
+	LEVEL2(2),
+	LEVEL3(3),
+
+	public final int value;
+
+	EscalationLevel(int value){
+	this.value = value;
+	}
+}
+Team
+	Priority_queue<EscalationLevel, User> levelToUserMapping
+	name
+	List<Incident> incidents
+
+Incident
+	id
+type
+interface Notification
+	type
+	notify(String message)
+
+	SMSNotification
+
+	EmailNotification
+
+	CallNotification
+
+IncidentService
+	Map<incident, Team> incidentToTeamMapping
+
+	getTeamByIncident
+
+EscalationService
+	Map<EscalationLevel, int> LevelToescalationCount;
+
+	escalate(incident){
+
+	}
+
+NotificationService
+	notifyUser(USer user, List<NotificationType> notification)

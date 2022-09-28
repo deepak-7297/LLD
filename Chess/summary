@@ -1,0 +1,79 @@
+Chess GAme
+we would be having chess board
+
+Pieces and their moves:
+    King: Key entity in chess. If your king is killed then you lose. Its also called checkmate.
+    Queen: It can move any number of steps in a single move and in any direction.
+    Rook: It only moves in horizontal and vertical direction but can move any number of steps in single move.
+    Bishop: It only moves in diagonal direction but can move any number of steps in single move.
+    Knight: It makes L shaped moves. Check online for more details about it.
+    Pawn: It can move 1 step forward vertically. If it is its first turn, then it can also choose to make 2 steps in single move.
+
+
+Classes
+Model
+Board
+    ArrayList<ArrayList<Position>> chessBoard
+    # Align Pieces on chessboard
+    alignPieces()
+
+Piece
+    bool isKilled
+    int turnCount
+    PieceColour
+    pieceType
+
+Player
+    id, name
+
+Cell
+    id, String horizontalPosition, String VerticalPosition, Piece
+
+Enum
+PieceColour - Black, White
+PieceType - King, Queen, Rook, Bishop, Pawn
+
+Moves package
+interface PossibleMovesProvider
+    List<Cell> availableMoves(Cell currentCell)
+
+    KingMovesProvider
+    QueenMovesProvider
+    PawnMovesProvider
+
+Services
+ChessBoardService
+    Board board;
+    initializeBoard()
+
+Exceptions
+    CheckMate
+    Game ended as checkmate
+
+GameServiceClass
+    Player player1, player2;
+    Player currentPlayerTurn ;
+
+    #initialize player and isPlayer1Turn
+    Game()
+
+    List<Position> showMove(isPlayer1Turn, Piece){}
+
+    #validates if after move is there checkmate if so endGame
+    makeMove(isPlayer1Turn, Piece, Position)
+
+    endGame()
+
+
+If further we want to track all moves in the game we can have move class
+Move
+Piece piecePlayed,
+Cell fromCell,
+Cell toCell,
+Player player
+Piece pieceKilled
+
+
+and in GameServiceClass we can store list of all MovesPlayed
+
+Also we can remove chessBoardService class if necessary

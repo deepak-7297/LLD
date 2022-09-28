@@ -1,0 +1,24 @@
+Requirements
+- Create a parking lot
+- Able to park vechiles in that parking lot
+- Vechiles should be park near to the entry
+
+
+ Classes
+ ParkingLot
+    id,ArrayList<Slot>
+ Slot
+    id, vehicle
+ Vehicle
+    Plate No, Colour
+
+ ParkingSlotService
+    parkVehicle()
+    unParkVehicle(Vehicle)
+
+    
+interface ParkingStrategy
+    getSlot()
+
+    NearestParkingStrategy
+        TreeSet<Slot> slot

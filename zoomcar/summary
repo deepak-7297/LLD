@@ -1,0 +1,23 @@
+Requirements
+User should be able to rent a vehicle of choice for give time
+Host should be able add new vehicle to its fleet at given zone
+if demand is high i.e more than 80% than increase price by 10%
+
+
+Classes
+Model
+    User
+    Vehicle - Location pickup, Location drop
+    Fleet
+    Location
+    Price
+            PricingStrategy
+            HighDemandHighPriceStrategy
+Services
+    BookingService
+        book()
+        end()
+    FleetService
+        addVehicleToFleet
+
+

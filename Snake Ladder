@@ -1,0 +1,116 @@
+Snake Ladder
+- board depicting no from 1 to 10
+- Multiple user can play at a time
+- Each user will roll a dice on that dice will move the no blocks
+- each cell can have either snake or ladder(Endpoints will differ)
+- if user land to snake then will get to end of that snake/ the no depicting it
+- if lands on ladder so will get to end of ladder
+- User starts from 1
+- any user reaches no 100 he should win the game and game ends here
+- user should be ablr to play in sequence
+
+Extended
+
+- if any user lands on no containing any other user then iot will have to start from starting
+- if any user lands six then he can play another chance
+- User can start only when he gets either 0,1
+
+
+Classes
+enum Colour - 
+User
+	id, name, Cell cur
+	userColour
+
+	acquiredVictory()
+
+Board
+	List<Cell> 
+
+	validator()
+
+	initializeBoard()
+
+	getCellAtPosition()
+
+Cell
+	id, List<Users> users, Entity enity
+
+	addSnaketoCell()
+	addLadderToCell()
+
+	containsSnake
+
+	containsLadder
+
+
+
+Dice
+	static rollDice()
+	colour
+
+enum type - {Snake, Ladder, Rabbit}
+
+10
+2
+
+
+ Entity
+	id
+	type 
+	Cell startCell, endCell
+
+
+
+	Snake
+	super( startCell, endCell)
+
+	Ladder
+
+	Rabbit
+	 super(startCell, 50)
+
+
+GameService
+	List<user> user
+	Queue<USer> playingTurn
+
+	Board board
+	Dice 
+
+	addUserTogame(User user)
+
+	startGame()
+
+
+
+	class Game{
+
+		public startGame()
+		{
+			do{
+
+			User cur = playingTurn.pop_front();
+
+			Dice.changeColour(cur.colour);
+			int diceNumber = Dice.rollDice()
+
+			cellPositioin = cur.curCell.getId+diceNumber()
+			Cell cell = Board.getCellByPosition(cellPositioin)
+
+
+			if(cell.entity){
+				Cell temopCell = Board.getCellByPosition(cell.entity.endCell)
+				cur.
+			}
+
+			playingTurn.push_back(user);
+
+						}while(true)
+		}
+	}
+
+
+
+
+

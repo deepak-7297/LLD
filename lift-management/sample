@@ -1,0 +1,67 @@
+REQUIREMENTS -
+- when user calls lift nearest lift should arrive
+- lift should drop people at desired floor
+     - if lift going up then should drop people going up first
+
+CLASSES
+
+Lift
+Request
+
+
+Enum
+Direction - Up, Down, Hold
+
+--------
+
+8
+7
+6
+
+5
+
+
+
+Classes
+
+Lift
+     Liftdirection, status, maxFloor, minFloor
+     currentFloor
+     LiftRequest liftPendingRequest
+
+LiftRequest
+     TreeSet<Floor> upRequest = new TreeSet<Floor>(new Comparator<Floor>(){
+     @Overide
+     public int compare(Floor a, Floor b){
+     return a.level.compareTo(b.level);
+     } 
+     });
+     TreeSet<Floor> downRequest
+
+Floor
+     id, level
+enum Liftdirection {up, down}
+enum LiftStatus {idle, Running, Not-Working}
+
+interface LiftAllotmentStrategy
+     callLift(atFloor)
+
+     NearestLiftStrategy
+
+enum CommandType {CALL_LIFT, DROP_AT_FLOOR}
+
+interface Commands
+     CommandType()
+
+     execute();
+
+     CallLiftCommand
+     @Override
+     CommandType()
+
+     DropAtFloorCommand
+
+
+LiftService
+     List<Lift> lifts;
+      

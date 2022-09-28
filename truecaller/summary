@@ -1,0 +1,35 @@
+Requirements
+- Caller identification
+- Call blocking
+- Spam Detection
+- Store User Contacts
+- Search for User contact by Name And number
+
+
+Classes
+User - id, name, number, bool Spam, 
+
+Map<USer, Arraylist<User>> contacts;
+Map<User, ArrayList<User>> blockedContact;
+
+		notifyCallFromJunkCall()
+		call()
+		
+
+interface Filter
+	search(List<USer> user)
+FilterByNAme
+	search
+FilterByNumber
+	search
+
+USerService
+	List<Users> user;
+
+	register(name, number)
+
+	unblock(User user, User blockUser)
+
+	blockUser(User user, User blockUser)
+
+	callUser(fromUser, toUser)

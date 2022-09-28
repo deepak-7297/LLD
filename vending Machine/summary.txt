@@ -1,0 +1,33 @@
+Requirements
+Add items to the vending machine in fixed number of slots
+Payment using card or cash
+Select item to dispense
+
+
+Classes
+VendingMachine
+	id
+	Set<Slots>
+
+
+Slots
+	id
+	List<Items> items
+	Integer price
+
+	dispenseItem()
+
+	addItem()
+
+Items
+	id, name, price
+
+PaymentType - {CASH, CARD}
+PaymentStatus - {Done, Cancel}
+
+abstract Payment
+	uuid id
+	int Amount
+	PaymentType
+	PaymentStatus
+	abstract process(int Amount)

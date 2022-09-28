@@ -1,0 +1,66 @@
+There would be different type of Movie available
+User should be able to book movie tickets of specific events
+User should be able to book any kind of ticket and would be given 10 min to process the event
+During the time user is making payment seat should become temp unavailable
+
+Classes
+Show 
+    id, name, title, startTime, endTime
+    Price
+Screen
+    id
+    theatre,
+    List<Seats>,
+    Set<Movie> MovieScheduled
+Theatre 
+    id, name
+
+
+Seats - id, status, SeatPrice, 
+
+enum SeatStatus - AVAILABLE, BLOCKED, BOOKED
+
+enum SeatType - ECONOMY, PREMIUM 
+
+SeatPrice
+    type,
+    price
+
+Booking - id, Movie, Theatre,List<seats> Seat, Status, Payment
+
+
+enum BookingStatus - CONFIRMED, CANCELLED, PROCESSING
+
+Abstract Payment
+id, paymenttype, 
+abstract makePayment
+
+
+interface SeatLockProvider
+    lockSeat(Screen, Show, Seat)
+    unlockSeat(Screen, Show, Seat)
+    validateIfLocked(Screen, Show, Seat)
+
+InMemoryLockProvider
+    lockExpiry = 10ms
+    Map<Screen, Map<Show, Seat>> seatLock;
+
+Service
+TheatreService
+    Map<Int, Theatre> idToTheatreMapping;
+    addTheatre
+    addMovie
+
+
+bookingservice
+    List<Booking> bookings;
+    SeatLockProvider 
+    createBooking(int id, Movie name, List<Seats> seat, )
+
+PaymentService
+    List<Payment> payments;
+    SeatLockProvider
+
+    processPayments
+
+

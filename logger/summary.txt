@@ -1,0 +1,28 @@
+Requirements
+- Should be able to log at more than 1 place like file, databases etc
+- Should be able to log multiple category of logs like info, debug, error
+    Also if higher level category picked should log all its lower category
+    for.eg debug should log info as well as error
+
+- Category and place of logging should be configurable
+
+Classes
+enum LogCategory (ERROR, INFO, DEBUG)
+
+abstract AbstractLogger
+    int level
+    setNextLevelLogger()
+
+    logMessage()
+
+    abstract displayMessage
+
+    ErrorLogger
+    InfoLogger
+    DebuggerLogger
+
+LogSubject
+
+LogObserver
+    FileObserver
+    DatabaseObserver
